@@ -1512,6 +1512,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@mendix/react-native-sqlite-storage@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@mendix/react-native-sqlite-storage/-/react-native-sqlite-storage-7.1.0.tgz#8d565e88a9ff398b910f5c0bc840fe871b5cbef9"
+  integrity sha512-DWPPaKJYsE4a6VEJgXNG26tZiY6tY+fMcQsjwVjTuya15ve1EI8baBUqBgvgNtLBeW/Bfr+RUNAMxRHPQx8fvQ==
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz#dbf733a965ca47b1973177dc0bb6c889edcfb129"
