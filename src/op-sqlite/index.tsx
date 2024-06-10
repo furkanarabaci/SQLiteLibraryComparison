@@ -13,10 +13,13 @@ export default () => {
     db.execute('PRAGMA mmap_size=268435456');
     const startTime = Date.now();
 
-    await db.executeAsync(Queries.CREATE_TABLE);
-    for (let i = 0; i < Queries.ROW_COUNT; i++) {
-      await db.executeAsync(Queries.INSERT_QUERY, [`User_${i}`]);
-    }
+    await db.transaction(async tx => {
+      await tx.executeAsync(Queries.CREATE_TABLE);
+
+      for (let i = 0; i < Queries.ROW_COUNT; i++) {
+        await tx.executeAsync(Queries.INSERT_QUERY, [`User_${i}`]);
+      }
+    });
 
     const endTime = Date.now();
     setResults(prev => ({ ...prev, queryTime: endTime - startTime }));
