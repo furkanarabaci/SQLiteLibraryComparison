@@ -1540,6 +1540,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@op-engineering/op-sqlite@^6.0.6":
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/@op-engineering/op-sqlite/-/op-sqlite-6.0.6.tgz#ce01917ca0a95bd0164834de1981411066f43cf6"
+  integrity sha512-2AyZ0RN8opABpnGmTbIhy5SiMkLBeP4Ls9ShbkmmYv4bCPCvJxtmEjiRg0eQUnDPSaWK65+a3CeYxEuLy8JkTA==
+
 "@react-native-community/cli-clean@13.6.8":
   version "13.6.8"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-clean/-/cli-clean-13.6.8.tgz#95ce964047f005152ac100394b6dcd5d2cc2a474"
