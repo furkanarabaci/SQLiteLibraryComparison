@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Button} from 'react-native';
-import SQLiteStorage from '@mendix/react-native-sqlite-storage';
-import Queries from '../Queries';
-
-SQLiteStorage.DEBUG(true);
+import React, { useEffect, useState } from 'react';
+import { View, Text, Button } from 'react-native';
+import { MendixSQLite } from '../DatabaseAdapter';
+import ComplexUniversity from '../queries/ComplexUniversity';
 
 export default () => {
   const [results, setResults] = useState({
@@ -11,24 +9,17 @@ export default () => {
   });
 
   const createQuery = async () => {
-    const db = await SQLiteStorage.openDatabase({
-      name: Queries.TABLE_NAME,
-      location: "default",
-      key: Queries.KEY_NAME
-    });
+    const db = new MendixSQLite();
+    await db.openDatabase({
+      tableName: ComplexUniversity.tableName,
+      key: ComplexUniversity.keyName
+    })
     const startTime = Date.now();
 
-    await db.transaction(async tx => {
-      await tx.executeSql(Queries.CREATE_TABLE);
-
-      for (let i = 0; i < Queries.ROW_COUNT; i++) {
-        await tx.executeSql(Queries.INSERT_QUERY, [`User_${i}`]);
-      }
-    });
-
+    await db.transaction(ComplexUniversity.queries);
     const endTime = Date.now();
-    setResults(prev => ({...prev, queryTime: endTime - startTime}));
-    db.close();
+    setResults(prev => ({ ...prev, queryTime: endTime - startTime }));
+    db.closeDatabase();
   };
   return (
     <View>
